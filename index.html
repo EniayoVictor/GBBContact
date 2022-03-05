@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoBuyBooks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+
+
+
+
+    <div class="container">
+        <form id="contact" method="post">
+          <h3>Contact Form</h3>
+          <h4>Contact us for custom quote</h4>
+          <fieldset>
+            <input
+              placeholder="Your name"
+              type="text"
+              tabindex="1"
+              required
+              autofocus
+              class="username"
+            />
+          </fieldset>
+          <fieldset>
+            <input
+              placeholder="Your Email Address"
+              type="email"
+              tabindex="2"
+              required
+              class="email"
+            />
+          </fieldset>
+          <fieldset>
+            <textarea
+              placeholder="Type your message here...."
+              tabindex="5"
+              required
+              class="message"
+            ></textarea>
+          </fieldset>
+          <fieldset>
+            <button
+              name="submit"
+              type="submit"
+              id="contact-submit"
+              data-submit="...Sending"
+              class="submit" style="background-color: #000;"
+            >
+              Submit
+            </button>
+          </fieldset>
+        </form>
+      </div>
+  
+      <!-- loader -->
+      <div class="loader">
+        <img
+
++        src="https://media.giphy.com/media/MEiZ5h8lOkM7rwideE/giphy.gif"
+          alt=""
+        />
+      </div>
+  
+
+
+
+<!--adeemerald-->
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+(function() {
+emailjs.init("user_VJoZK3IcUzdFFaTQ5sUZA");
+})();
+</script>
+-->
+
+<!--adegbdavid-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+(function() {
+emailjs.init("user_jbcKroHqJxNFsr6ck1oG9");
+})();
+</script>
+
+
+<!-- Sweet alert-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+<script>
+/*
+User ID  user_VJoZK3IcUzdFFaTQ5sUZA
+Access Token  e51a25d61c343938565d5c327be34b20
+*/
+
+function validate(){
+    var name = document.querySelector('.username');
+    var email = document.querySelector('.email');
+    var msg = document.querySelector('.message');
+    var submit = document.querySelector('.submit');
+
+    submit.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (name.value == "" || email.value == "" || msg.value == "") {
+            inputEmpty();
+          } else {
+           // loader.style.display = "flex";
+            sendmail(name.value, email.value, msg.value);
+            success();
+            console.log('email sent');
+          //  loader.style.display = "none";
+          }
+        });
+
+      }
+     validate();
+
+     function sendmail(name, email, msg){
+      /*  emailjs.send("service_pn4078w","template_krpdcfe",{
+        from_name: name,
+        to_name: email,
+        message: msg,
+        });*/
+          
+        emailjs.send("service_amexvhh","template_9q0uspi",{
+        from_name: name,
+        to_name: email,
+        message: msg,
+        });
+    }
+
+
+
+
+function success(){
+    swal({
+  title: "Good job!",
+  text: "Successfully Sent Message",
+  icon: "success",
+  button: "ok!",
+});
+}
+
+function error(){
+    swal({
+  title: "Oops...!",
+  text: "Something went wrong, message could not be sent",
+  icon: "error",
+  button: "ok!",
+});
+}
+
+function inputEmpty(){
+    swal({
+  title: "Oops...!",
+  text: "Input field are required",
+  icon: "error",
+  button: "ok!",
+});
+}
+
+
+</script>
+
+</body>
+</html>
